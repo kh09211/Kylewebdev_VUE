@@ -16,7 +16,7 @@
               <div class="card-body py-4">
                 <div class="form-group">
                   <label for="password">Enter CMS password</label>
-                  <input type="password" class="form-control" id="password" aria-describedby="password" @keyup.enter="login">
+                  <input type="password" class="form-control" id="password" aria-describedby="password" @keyup.enter="login" autofocus>
                 </div>
                 <button v-on:click="login" class="btn btn-primary">Submit</button>
               </div>
@@ -55,7 +55,7 @@
 
           <router-link :to="{
             name: 'Create',
-            params: {'loginObj': loginObj}
+            /* params: {'loginObj': loginObj} */
           }" class="btn btn-primary ml-1">Add New Project</router-link>
         </div>
       </div>
@@ -68,54 +68,34 @@
 <script>
 export default {
   name: 'CMS',
-  data() {
-    return {
-      // login variable used as API token
-      loginObj: {
-        loggedIn: false,
-        password: null
-      },
-      projectsArr: null,
-      apiUrl: this.$apiUrl
+  computed: {
+    loginObj() {
+      return this.$store.getters.getLoginObj;
+    },
+    projectsArr() {
+      return this.$store.state.projectsArr;
     }
   },
   methods: {
-    login: function() {
+    login() {
       let password = document.getElementById('password').value
-
-      // make the api call to the back end to check password
-      this.$http.post(this.$apiUrl + '/login', {'password': password})
-        .then(res => {
-          if (res.data == true) {
-            // set the data variables to update the dom
-            this.loginObj.loggedIn = true;
-            this.loginObj.password = password;
-          } else {
-            alert('Incorrect Password, Retry.');
-            document.getElementById('password').value = "";
-          }
-        }).catch(err => console.log(err));
+      // dispatch action in the vuex store
+      this.$store.dispatch('login', password);
     },
-    deleteProject: function(id) {
+    deleteProject(id) {
       console.log(id);
     },
-    getIdInputs: function() {
+    getIdInputs() {
       let idArr = [];
       document.getElementsByName('projectIds').forEach((project, index) => {
         idArr.push(parseInt(project.value))
       });
       return idArr;
     },
-    reorderProjects: function() {
-      // call to the API to reorder ids in the current fassin
-      this.$http.post(this.$apiUrl + '/projects/reorder', this.getIdInputs())
-      .then(res => {
-          // update the data field
-          this.projectsArr = res.data;
-        })
-      .catch(err => console.log(err));
+    reorderProjects() {
+      this.$store.dispatch('reorderProjectsArr', this.getIdInputs())
     },
-    checkIds: function(event) {
+    checkIds(event) {
       // on keyup check all the ids for duplicates and 
       let idArr = this.getIdInputs();
       let indexArr = [];
@@ -152,18 +132,8 @@ export default {
     }
   },
   mounted() {
-    // Make api call to get projects
-    this.$http.get(this.$apiUrl + '/projects')
-      .then(response => {
-        this.projectsArr = response.data;
-
-        // sort array by order number
-        this.projectsArr.sort((a,b) => {
-          return (a.order - b.order < 0) ? -1 : 1;
-        });
-        })
-      .catch(error => console.log(error));
-    
+    // on component load, dispatch action to update projects
+    this.$store.dispatch('refreshProjectsArr');
 
   }
 } 

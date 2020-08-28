@@ -4,7 +4,7 @@
     <div class="divider-box"></div>
     <services></services>
     <div class="divider-box"></div>
-    <portfolio v-bind:projects="projectsArr"></portfolio>
+    <portfolio></portfolio>
     <div class="divider-box"></div>
     <resume></resume>
     <div class="divider-box"></div>
@@ -36,23 +36,7 @@ export default {
     AboutMe,
     Contact,
     FooterEnd
-  },
-  data() {
-    return {
-      projectsArr: null
-    }
-  },
-  mounted() {
-    // Make api call to get projects
-    this.$http.get(this.$apiUrl + '/projects')
-      .then(response => {this.projectsArr = response.data})
-      .catch(error => console.log(error));
-
-    //setTimeout(() => console.log(this.projectsArr[0].photos[0]), 1000);
-  
-   
   }
-
 }
 </script>
 

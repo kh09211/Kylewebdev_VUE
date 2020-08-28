@@ -26,12 +26,20 @@
 							<div v-for="(tech,index) in techs" class="border border-secondary rounded d-inline-block py-1 mt-2 mr-2 pl-2">{{ tech }} <button class="btn py-0 pr-2" @click="deleteTech(index)"><i class="fas fa-times-circle"></i></button></div>
 							<br>
 
+							<div class="my-3 text-center">* Note: Add project first, then you will be able to add photos.</div>
+							<div class="row justify-content-center mt-1">
+								<button class="btn btn-primary mr-1" @click="projectAddedFunc" id="add-project">Add Project</button>
+								<router-link :to="'/cms'" class="btn btn-primary">Cancel</router-link>
+								<button @click="testFetch()">Test</button>
+							</div>
 
-							<label for="name" class="mt-3">Project Name:</label>
-							<input type="text" class="form-control" id="name" aria-describedby="name">
-
-							<a href="#" class="btn btn-primary">Go somewhere</a>
-							<router-link :to="'/cms'" class="btn btn-primary">Cancel</router-link>
+							<div v-if="projectAdded" class="mt-5">
+								<div class="row justify-content-between mx-0" >
+									<input type="file" class="" id="photo" @change="fileListener">
+									<button class="btn btn-primary" id="add-photo" disabled>Add</button>
+								</div>
+							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -45,40 +53,51 @@ export default {
 	name: 'Create',
 	data() {
 		return {
-			techs: []
+			techs: [],
+			photo: null,
+			projectAdded: false
 		}
 	},
-	props: {
-		loginObj: {
-			type: Object,
-			default: null
+	computed: {
+		photoName() {
+
 		},
-		
-		},
-	beforeRouteUpdate(to, from, next) {
-		// navigation guard to redirect to login if not logged in
-		console.log('notlogged')
-		if (from.name != 'CMS' || this.loginObj.loggedIn != true || this.loginObj == null) {
-			
-			next({name: 'CMS'}); // point back to the CMS/Login view
-		} else {
-    		//next(); //continue on to the desired route
-  		}
 	},
 	methods: {
 		addTech() {
 			let newTech = document.getElementById('techs');
-			console.log(newTech);
+
 			this.techs.push(newTech.value);
 			newTech.value = '';
 		},
 		deleteTech(index) {
-			console.log(index);
+			// remove item from the array by index
+			this.techs.splice(index, 1);
+		},
+		testFetch() {
+			this.$http.post('http://localhost:8000/test', this.$store.getters.getLoginObj).then(res => console.log(res)).catch(err => console.log(err));
+		},
+		projectAddedFunc() {
+			this.projectAdded = true;
+			document.getElementById('add-project').disabled = true;
+
+		},
+		fileListener() {
+			// Event listener to enable/disable file add button
+			let choose = document.getElementById('photo');
+			let addbutton = document.getElementById('add-photo');
+
+			if (choose.value != "") {
+				addbutton.disabled = false;
+			} else {
+				addbutton.disabled = true;
+			}			
 		}
 	},
 	mounted() {
+		//console.log(this.$store.getters.getLoginObj)
+		//setTimeout(() => console.log(document.getElementById('photos')), 10000);
 		
-		setTimeout(() => console.log(this.loginObj), 3000);
 	}
 }
 </script>
@@ -90,5 +109,8 @@ export default {
 }
 #description {
 	height: 100px;
+}
+input#file-upload-button {
+	background-color: green;
 }
 </style>

@@ -42,22 +42,21 @@
 <script>
 export default {
   	name: 'Portfolio',
-  	props: ['projects'],
 	methods: {
 		techsJoined: function(techs) {
 			// join the techs array into an inline list
-
 			return techs.join(", ");
 		}
 	},
 	computed: {
-		projectsReverse: function() {
-			if (this.projects) {
-				// since the projects prop may not be loaded at the time of render, make the function conditional. Since this is a computed property, it will auto update dom
-				return this.projects.reverse();
-			}
+		projectsReverse() {
+			// return reversed array from the state
+			return this.$store.state.projectsArr.reverse();
 		}
-		
+	},
+	mounted() {
+		// refresh the state by calling dispatch in vuex
+		this.$store.dispatch('refreshProjectsArr');
 	}
 }
 </script>
