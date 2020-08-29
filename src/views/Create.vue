@@ -28,14 +28,13 @@
 
 							<div class="my-3 text-center">* Note: Add project first, then you will be able to add photos.</div>
 							<div class="row justify-content-center mt-1">
-								<button class="btn btn-primary mr-1" @click="projectAddedFunc" id="add-project">Add Project</button>
+								<button class="btn btn-primary mr-1" @click="createProject()" id="add-project">Add Project</button>
 								<router-link :to="'/cms'" class="btn btn-primary">Cancel</router-link>
-								<button @click="testFetch()">Test</button>
 							</div>
 
 							<div v-if="projectAdded" class="mt-5">
 								<div class="row justify-content-between mx-0" >
-									<input type="file" class="" id="photo" @change="fileListener">
+									<input type="file" class="" id="photo" @change="fileChosen">
 									<button class="btn btn-primary" id="add-photo" disabled>Add</button>
 								</div>
 							</div>
@@ -74,16 +73,48 @@ export default {
 			// remove item from the array by index
 			this.techs.splice(index, 1);
 		},
-		testFetch() {
-			this.$http.post('http://localhost:8000/test', this.$store.getters.getLoginObj).then(res => console.log(res)).catch(err => console.log(err));
+		createProject() {
+			let projectInputsArr = ['name', 'link', 'github', 'description'];
+
+			// set all bordersColors blank
+			projectInputsArr.forEach(input => {document.getElementById(input).style.borderColor = ''});
+			document.getElementById('techs').style.borderColor = '';
+		
+			// check that all fields are filled and if not, light them red
+			let required = projectInputsArr.filter(input => {
+				return (document.getElementById(input).value == "") ? true : false;
+			})
+			if (this.techs.length == 0) {
+				required.push('techs');
+			}
+			
+			if (required.length > 0) {
+				required.forEach(input => {
+					document.getElementById(input).style.borderColor = 'red';
+				})
+			} else {
+				// create the projects object!
+
+				let newProject = {}
+				projectInputsArr.forEach(input => {
+					newProject[input] = document.getElementById(input).value;
+				});
+				newProject.techs = this.techs;
+				
+				// dispatch action with project data
+				this.$store.dispatch('createProject', newProject);
+				this.projectAddedFunc(); //display the photo upload area
+			}
+			
+	
 		},
 		projectAddedFunc() {
 			this.projectAdded = true;
 			document.getElementById('add-project').disabled = true;
 
 		},
-		fileListener() {
-			// Event listener to enable/disable file add button
+		fileChosen() {
+			// enable/disable file add button
 			let choose = document.getElementById('photo');
 			let addbutton = document.getElementById('add-photo');
 

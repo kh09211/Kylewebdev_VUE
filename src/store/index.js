@@ -1,5 +1,5 @@
 import Vue from 'vue'
-import Vuex from 'vuex'
+import Vuex, { Store } from 'vuex'
 
 Vue.use(Vuex)
 
@@ -12,7 +12,7 @@ export default new Vuex.Store({
     projectsArr: []
   },
   getters: {
-    getLoginObj(state) {     // ES6 NOTE: or getLoginObj: state => {}   or getLoginObj: function(state) {}
+    getLoginObj(state) {
       return state.loginObj;
     }
     
@@ -54,6 +54,30 @@ export default new Vuex.Store({
             document.getElementById('password').value = "";
           }
         }).catch(err => console.log(err));
+    },
+    createProject(context, newProject) {
+      // make payload obj
+      let payload = {
+        'password': this.state.loginObj.password,
+        'project': newProject
+      }
+      // make post call to back end and on success will return new array, commit mutation
+      this._vm.$http.post(this._vm.$apiUrl + '/projects/create', payload)
+        .then(res => { 
+          // the api response returns the most up to date state in the database
+          context.commit('updateProjectsArr', res.data) 
+        })
+        .catch(err => console.log(err));
+    },
+    deleteProject(context, id) {
+      let payload = {
+        'password': this.state.loginObj.password,
+      }
+      this._vm.$http.delete(this._vm.$apiUrl + `/projects/${id}/delete`, {data: payload})
+        .then(res => {
+          context.commit('updateProjectsArr', res.data);
+        })
+        .catch(err => console.log(err));
     }
   },
   modules: {

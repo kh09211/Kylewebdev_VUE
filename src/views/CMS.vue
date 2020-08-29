@@ -41,7 +41,7 @@
               </thead>
               <tbody>
                 <tr v-for="project in projectsArr" :key="project.id">
-                  <td><input type="text" :value="project.order" class="ml-2" v-on:keyup="checkIds($event)" name="projectIds" :ref="'input-' + project.id"></th>
+                  <td><input type="text" :value="project.order" class="ml-2" v-on:keyup="checkIds($event)" name="projectIds" :ref="project.order"></th>
                   <td>{{ project.name }}</td>
                   <td><router-link :to="'/projects/' + project.id + '/edit'" class="ml-1"><i class="far fa-edit"></i></router-link></td>
                   <td><a href="#" v-on:click="deleteProject(project.id)"><i class="fas fa-trash-alt ml-3"></i></a></td>
@@ -83,54 +83,54 @@ export default {
       this.$store.dispatch('login', password);
     },
     deleteProject(id) {
-      console.log(id);
-    },
-    getIdInputs() {
-      let idArr = [];
-      document.getElementsByName('projectIds').forEach((project, index) => {
-        idArr.push(parseInt(project.value))
-      });
-      return idArr;
+      this.$store.dispatch('deleteProject', id);
     },
     reorderProjects() {
-      this.$store.dispatch('reorderProjectsArr', this.getIdInputs())
+      this.$store.dispatch('reorderProjectsArr', this.getOrderInputs())
+    },
+  
+    getOrderInputs() {
+      // return an arr of current values of order input boxes
+      let orderArr = [];
+      document.getElementsByName('projectIds').forEach((project, index) => {
+        orderArr.push(parseInt(project.value))
+      });
+      return orderArr;
     },
     checkIds(event) {
       // on keyup check all the ids for duplicates and 
-      let idArr = this.getIdInputs();
-      let indexArr = [];
-      let idEdited = event.srcElement._value;
-      document.getElementsByName('projectIds').forEach((project, index) => {
-        // make an array of original Ids from indexes to compare against the idArr
-        indexArr.push(index + 1);
+      let newArr = this.getOrderInputs(); //current values of boxes
+      let oldArr = []; // the original values of boxes
+      let itemEdited = event.srcElement._value;
+
+      // make an array of all the old order values
+      this.projectsArr.forEach(project => {
+        oldArr.push(parseInt(project.order));
+      })
+
+      // make a new array by filtering the oldArr array. if none of the newArr items match the old, returns true which adds the value to the idsMissingArr array
+      let ordersMissing = oldArr.filter(oldItem => {
+        return newArr.every(newItem => {
+          return oldItem != newItem;
+        })
       });
 
-      // make a new array by filtering the 0-9 index array. if none of the new ids match the index, return true which adds the value to the idsMissingArr array
-      let idsMissingArr = indexArr.filter(index => {
-        return idArr.every(id => {
-          if (id != index) {
-            return true;
-          } else {
-            return false;
-          }
-        });
-      });
-
-      // color inputs of missing ids red and disable the re-order button
-      if (idsMissingArr.length > 0) {
-        idsMissingArr.forEach(idMissing => {
-          this.$refs['input-' + idMissing][0].style.borderColor = 'red';
+      // color inputs of missing orders red and disable the re-order button
+      if (ordersMissing.length > 0) {
+        ordersMissing.forEach(ref => {
+          this.$refs[ref][0].style.borderColor = 'red';
         });
         document.getElementById('reorder').disabled = true;
       } else {
         // clear red boxes and enable button
-        indexArr.forEach(index => {
-          this.$refs['input-' + index][0].style.borderColor = '';
+        newArr.forEach(ref => {
+          this.$refs[ref][0].style.borderColor = '';
         });
         document.getElementById('reorder').disabled = false;
       }
     }
   },
+
   mounted() {
     // on component load, dispatch action to update projects
     this.$store.dispatch('refreshProjectsArr');
@@ -146,7 +146,7 @@ export default {
 }
 
 td input {
-  width:25px;
+  width:27px;
   text-indent: 3px;
 }
 </style>
