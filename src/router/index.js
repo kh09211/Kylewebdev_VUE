@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import CMS from '../views/CMS.vue'
 import Create from '../views/Create.vue'
+import Edit from '../views/Edit.vue'
 import store from '../store/index.js' //import store so it can be used to authenticate on the navigation gate
 
 Vue.use(VueRouter)
@@ -27,6 +28,11 @@ Vue.use(VueRouter)
     name: 'Create',
     component: Create,
   },
+  {
+    path: '/cms/:id/edit',
+    name: 'Edit',
+    component: Edit,
+  }
   ]
 
 const router = new VueRouter({

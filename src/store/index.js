@@ -62,10 +62,29 @@ export default new Vuex.Store({
         'project': newProject
       }
       // make post call to back end and on success will return new array, commit mutation
-      this._vm.$http.post(this._vm.$apiUrl + '/projects/create', payload)
+      this._vm.$http.post(this._vm.$apiUrl + '/projects', payload)
         .then(res => { 
           // the api response returns the most up to date state in the database
           context.commit('updateProjectsArr', res.data) 
+        })
+        .catch(err => console.log(err));
+    },
+    editProject(context, editedProject) {
+      // make payload obj
+      let payload = {
+        'password': this.state.loginObj.password,
+        'project': editedProject
+      }
+      // make post call to back end and on success will return new array, commit mutation
+      this._vm.$http.patch(this._vm.$apiUrl + '/projects/' + editedProject.id, payload)
+        .then(res => { 
+          // the api response returns the most up to date state in the database
+          if (typeof res.data == 'object') {
+            context.commit('updateProjectsArr', res.data)
+            alert('Project was successfully edited!');
+          } else {
+            console.log('There was a problem');
+          }
         })
         .catch(err => console.log(err));
     },
@@ -73,7 +92,7 @@ export default new Vuex.Store({
       let payload = {
         'password': this.state.loginObj.password,
       }
-      this._vm.$http.delete(this._vm.$apiUrl + `/projects/${id}/delete`, {data: payload})
+      this._vm.$http.delete(this._vm.$apiUrl + `/projects/${id}`, {data: payload})
         .then(res => {
           context.commit('updateProjectsArr', res.data);
         })

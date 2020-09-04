@@ -43,7 +43,7 @@
                 <tr v-for="project in projectsArr" :key="project.id">
                   <td><input type="text" :value="project.order" class="ml-2" v-on:keyup="checkIds($event)" name="projectIds" :ref="project.order"></th>
                   <td>{{ project.name }}</td>
-                  <td><router-link :to="'/projects/' + project.id + '/edit'" class="ml-1"><i class="far fa-edit"></i></router-link></td>
+                  <td><router-link :to="'/cms/' + project.id + '/edit'" class="ml-1"><i class="far fa-edit"></i></router-link></td>
                   <td><a href="#" v-on:click="deleteProject(project.id)"><i class="fas fa-trash-alt ml-3"></i></a></td>
                 </tr>
               </tbody>
