@@ -12,7 +12,7 @@
 					<div class="rounded text-center mt-4 fulllength">
 						<p>
 						<a :href="project.link" target="_blank">
-							<img class="img-fluid border-bottom" :src="require('../assets/projects_images/' + project.photos[0])" alt="screenshot photo" />
+							<img class="img-fluid border-bottom" :src="$apiUrl + '/photos/' + project.photos[0]" alt="screenshot photo" />
 							<br><br>
 							<h3><b>{{ project.name }}</b></h3>
 						

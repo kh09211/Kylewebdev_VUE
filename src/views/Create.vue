@@ -26,7 +26,7 @@
 							<div v-for="(tech,index) in techs" class="border border-secondary rounded d-inline-block py-1 mt-2 mr-2 pl-2">{{ tech }} <button class="btn py-0 pr-2" @click="deleteTech(index)"><i class="fas fa-times-circle"></i></button></div>
 							<br>
 
-							<div class="my-3 text-center">* Note: Add project first, then you will be able to add photos.</div>
+							<div class="my-3 text-center" v-show="! projectAdded">* Note: Add project first, then you will be able to add photos.</div>
 							<div class="row justify-content-center mt-1">
 								<button class="btn btn-primary mr-1" @click="createProject()" id="add-project">Add Project</button>
 								<router-link :to="'/cms'" class="btn btn-primary">Cancel</router-link>
@@ -34,8 +34,16 @@
 
 							<div v-if="projectAdded" class="mt-5">
 								<div class="row justify-content-between mx-0" >
-									<input type="file" class="" id="photo" @change="fileChosen">
-									<button class="btn btn-primary" id="add-photo" disabled>Add</button>
+									<input type="file" class="" id="photo" @change="fileChosen" ref="addPhotoInput">
+									<button class="btn btn-primary" id="add-photo" @click="uploadPhoto()" disabled>Add</button>
+								</div>
+								<div class="row">
+									<div class="col-6 mt-3" v-for="(photoFile, index) in photos" :key="photoFile">
+										<img :src="$apiUrl + '/photos/' + photoFile" class="w-100" @click="deletePhoto(index)">
+									</div>
+								</div>
+								<div class="row justify-content-center mt-3" v-show="photos.length > 0">
+									* NOTE: Click photo to remove it
 								</div>
 							</div>
 							
@@ -54,13 +62,17 @@ export default {
 		return {
 			techs: [],
 			photo: null,
-			projectAdded: false
+			projectAdded: false,
+			file: ''
 		}
 	},
 	computed: {
-		photoName() {
-
+		photos() {
+			return this.$store.state.projectsArr.find(project => project.id == this.projectId).photos
 		},
+		projectId() {
+			return this.$store.state.projectsArr[this.$store.state.projectsArr.length - 1].id;
+		}
 	},
 	methods: {
 		addTech() {
@@ -111,7 +123,7 @@ export default {
 		projectAddedFunc() {
 			this.projectAdded = true;
 			document.getElementById('add-project').disabled = true;
-
+			
 		},
 		fileChosen() {
 			// enable/disable file add button
@@ -123,10 +135,27 @@ export default {
 			} else {
 				addbutton.disabled = true;
 			}			
+		},
+		uploadPhoto() {
+			//console.log(this.$store.state.projectsArr.find(project => project.id == this.projectId));
+		
+			// get the id. the recently created project is the last one in state
+			let projectId = this.projectId;
+			
+			// assign the file to an variable using the file api unsing a ref
+			this.file = this.$refs.addPhotoInput.files[0];
+
+			// action for api call
+			this.$store.dispatch('uploadPhoto', {'id': projectId, 'file': this.file});
+		
+		},
+		deletePhoto(index) {
+			// action for api call
+			this.$store.dispatch('deletePhoto', {'id': this.projectId, 'photoIndex': index});
 		}
 	},
 	mounted() {
-		//console.log(this.$store.getters.getLoginObj)
+		//console.log(this.photos)
 		//setTimeout(() => console.log(document.getElementById('photos')), 10000);
 		
 	}

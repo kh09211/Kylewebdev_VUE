@@ -78,6 +78,36 @@ export default new Vuex.Store({
           context.commit('updateProjectsArr', res.data);
         })
         .catch(err => console.log(err));
+    },
+    uploadPhoto(context, {id, file}) {
+      // make api call to back end with photo
+      let formData = new FormData();
+      let password = this.state.loginObj.password;
+
+      formData.append("password", password)
+      formData.append("image", file);
+     
+      this._vm.$http.post(this._vm.$apiUrl + `/projects/${id}/photo-upload`, formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      }).then(res => {
+        // update the projects array with the returned data
+        context.commit('updateProjectsArr', res.data);
+      })
+      .catch(err => console.log(err));
+    },
+    deletePhoto(context, {id, photoIndex}) {
+      // set payload object
+      let payload = {'password': this.state.loginObj.password};
+     
+      // make api call to back end to delete photo
+      this._vm.$http.delete(this._vm.$apiUrl + `/projects/${id}/photo-delete/${photoIndex}`, {data: payload})
+      .then(res => {
+        // update the projects array with the returned data
+        context.commit('updateProjectsArr', res.data);
+      })
+      .catch(err => console.log(err));
     }
   },
   modules: {
