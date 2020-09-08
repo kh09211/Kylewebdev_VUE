@@ -18,7 +18,7 @@
 							<label for="description" class="mt-3">Description:</label>
 							<textarea class="form-control" id="description" aria-describedby="description" :value="project.description"></textarea>
 
-							<div class="mb-n3 mt-4 text-center">* NOTE: Submit any techs first</div>
+							<div class="mb-n3 mt-4 text-center">* NOTE: Submit any techs separately</div>
 							<label for="techs" class="mt-3">Techs:</label>
 							<div class="d-flex">
 								<input type="text" class="form-control" id="techs" aria-describedby="techs">
@@ -31,7 +31,7 @@
 								<button class="btn btn-primary mr-1" @click="editProject()" id="edit-project">Submit Edit</button>
 								<router-link :to="'/cms'" class="btn btn-primary">Cancel</router-link>
 							</div>
-							
+
 							<hr>
 							<div v-if="projectAdded" class="mt-3">
 								<div class="row justify-content-between mx-0" >

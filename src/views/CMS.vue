@@ -42,7 +42,7 @@
               <tbody>
                 <tr v-for="project in projectsArr" :key="project.id">
                   <td><input type="text" :value="project.order" class="ml-2" v-on:keyup="checkIds($event)" name="projectIds" :ref="project.order"></th>
-                  <td>{{ project.name }}</td>
+                  <td><a href="#" @click="showModalFunc(project.id)">{{ project.name }}</a></td>
                   <td><router-link :to="'/cms/' + project.id + '/edit'" class="ml-1"><i class="far fa-edit"></i></router-link></td>
                   <td><a href="#" v-on:click="deleteProject(project.id)"><i class="fas fa-trash-alt ml-3"></i></a></td>
                 </tr>
@@ -60,14 +60,24 @@
         </div>
       </div>
 
-
     </div>
+
+    <show-modal v-if="showTheModal" :projectId="projectToShow" @close="showTheModal = false" @stayOpen="showTheModal = true"></show-modal>
   </div>
 </template>
 
 <script>
+import ShowModal from '@/components/ShowModal.vue';
+
 export default {
   name: 'CMS',
+  components: {ShowModal},
+  data() {
+    return {
+      showTheModal: false,
+      projectToShow: null,
+    }
+  },
   computed: {
     loginObj() {
       return this.$store.getters.getLoginObj;
@@ -128,6 +138,10 @@ export default {
         });
         document.getElementById('reorder').disabled = false;
       }
+    },
+    showModalFunc(id) {
+      this.projectToShow = id;
+      this.showTheModal = true;
     }
   },
 
@@ -149,4 +163,5 @@ td input {
   width:27px;
   text-indent: 3px;
 }
+
 </style>

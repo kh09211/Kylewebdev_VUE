@@ -8,26 +8,13 @@
 		</div>
 		<div class="row justify-content-center">
 
-				<div v-for="project in projectsReverse" :key="project.id" class="col-md-6">
-					<div class="rounded text-center mt-4 fulllength">
-						<p>
-						<a :href="project.link" target="_blank">
-							<img class="img-fluid border-bottom" :src="$apiUrl + '/photos/' + project.photos[0]" alt="screenshot photo" />
-							<br><br>
-							<h3><b>{{ project.name }}</b></h3>
-						
-							Link</a> to view website<br>
-							<span v-if="project.github == 'private'">
-								GitHub repository is currently private<br>
-							</span>
-							<span v-else>
-								Check out the code at my <a :href="project.github" target="_blank">GitHub</a><br>
-							</span>
-							Technologies Used: <i>{{ techsJoined(project.techs) }}</i><br><hr>
-							<div class="desc"><i>{{ project.description }}</i></div>
-						</p>
-					</div>
+			<div v-for="project in projectsReverse" :key="project.id" class="col-md-6">
+				<div class="text-center mt-4" @click="showModalFunc(project.id)">
+					<img class="img-fluid" :src="$apiUrl + '/photos/' + project.photos[0]" alt="screenshot photo" />
+					<br><br>
+					<h3><b>{{ project.name }}</b></h3>
 				</div>
+			</div>
 
 		</div>
 		<div class="row justify-content-center align-items-center d-flex pt-5">
@@ -36,17 +23,33 @@
 				<button class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
 			</form>
 		</div>
+
+		 <show-modal v-if="showTheModal" :projectId="projectToShow" @close="showTheModal = false" @stayOpen="showTheModal = true"></show-modal>
+
 	</div>
 </template>
 
 <script>
+import ShowModal from '@/components/ShowModal.vue';
+
 export default {
   	name: 'Portfolio',
+	components: {ShowModal},
+	data() {
+		return {
+		showTheModal: false,
+		projectToShow: null,
+		}
+	},
 	methods: {
 		techsJoined: function(techs) {
 			// join the techs array into an inline list
 			return techs.join(", ");
-		}
+		},
+		showModalFunc(id) {
+			this.projectToShow = id;
+			this.showTheModal = true;
+    	}
 	},
 	computed: {
 		projectsReverse() {

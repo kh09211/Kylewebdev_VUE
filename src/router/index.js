@@ -44,10 +44,13 @@ const router = new VueRouter({
 router.beforeEach((to, from, next) => {
   // global navigation guard to redirect to login if not logged in and going TO any routes other than CMS
   let loginObj = store.getters.getLoginObj;
-  
+
+
   if (to.name == 'Home') {
     next(); // continue to route
   } else if (to.name == 'CMS'){
+    next(); //continue to route
+  } else if (to.name == 'Show'){
     next(); //continue to route
   } else if (loginObj.loggedIn != true) {
     next({name: 'CMS'}); // point back to the CMS/Login view
