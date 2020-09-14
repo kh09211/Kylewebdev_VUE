@@ -3,50 +3,53 @@
     <div class="row justify-content-center mt-2">
       <div class="col-md-4">
         <div class="text-center">
-          <img class="img-fluid icon my-4" src="../assets/gearicon_blue.png" alt="gear icon">
+          <img class="img-fluid icon mt-3 pt-3 mb-4 icon-shadow" src="../assets/gearicon_blue.png" alt="gear icon">
           <br>
-          <b>Web Development</b>
+          <b class="title-shadow">Web Development</b>
         </div>
         <ul class="mt-4 mr-1">
-          <li>From small static sites to large ground-up dynamic applications, we can come up with the perfect solution to fit your needs.</li>
+          <li>From small static sites to large ground-up dynamic applications, let's come up with the perfect solution to fit your needs</li>
 
-          <li>My fully responsive and mobile ready websites can support a scalable user base, secure user authorization, account registration, password management, and custom content management systems that securely and reliable serve your needs.</li>
+          <li>My fully responsive and mobile ready websites can support a scalable user base, authentication, registration, and password management</li>
 
-          <li>From comments and messages to posts and follwers, I can help your user base stay connected through secure and validated forms.</li>
+          <li>Stay up to date with custom content management systems. Keep users connected through comments, messages, posts, and subscribes</li>
 
-          <li>Once complete, your website is your property. Host, store, and deploy your web apps wherever you like. Or, let me handle the hosting and deployment for you through a secure Amazon cloud webserver.</li>
+          <li>I can make changes or add features to your existing website using HTML, CSS, PHP, Javascript, Wordpress, databases, and more</li>
 
-          <li>I can make changes and upgrades to your existing website that uses HTML, CSS, PHP, Javascript, SQL databases, or wordpress.</li>
-
-          <li>Your web app code can be stored in a private or public online repository allowing ease of change, version control, and simplicity of collaboration on your project between multiple developers</li>
+          <li>As a team player, I would love the opportunity to work alongside your existing team. I'm a fast learner and can get up to speed quickly!</li>
         </ul>
       </div>
       <div class="col-md-4">
         <div class="text-center mb-2">
-          <img class="img-fluid icon mt-3 aws" src="../assets/aws_logo2.png" alt="aws icon">
+          <img class="img-fluid icon mt-3 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
           <br>
-          <b>Hosting and AWS</b>
+          <b class="title-shadow">Hosting and AWS</b>
         </div>
         <ul class="mt-4 mr-1">
-          <li>Large applications require complex deployment, database migrations, and caching. Let me handle this for you. We use the same services as companies like Netflix, Airbnb, and Expedia.</li>
-          <li>Have confidence that your site will reliably be available for your customers. Our webservers run off Amazon's proven AWS Coud instances with %99.99 uptimes. Or use your own hosting solution like SiteGround.</li>
-          <li>Your applications are scalable so that as your needs grow, your hosting, database, and resources can grow along with you. Changes can happen within minutes, not days or weeks.</li>
-          <li>Want to be in control of everything? Let me help you set up your own hosting solution utilizing your own Amazon AWS Cloud webserver, storage volumes, databases, and DNS routing.</li>
-          <li>With your own AWS Cloud web setup, you can choose the configuration of CPU, memory, storage, and networking capacity that you need. You will get a Static IP address with this service and autoscaling capability. You don't need to be a cloud computing expert, I can administer all of this for you! </li>
+          <li>Large applications require complex deployment, database migrations, and caching. Let me handle this for you using the same services as companies like Netflix, Airbnb, and Expedia</li>
+
+          <li>Once complete, your website is your property. Host, store, and deploy your web apps wherever you like. Or, let  me handle this for you</li>
+
+          <li>Your applications are scalable so that as your needs grow, your hosting, database, and resources can grow along with you. Changes can happen within minutes, not days or weeks</li>
+
+          <li>Want to be in control of everything? Let me help you set up your own hosting solution utilizing your own Amazon AWS Cloud webserver, storage volumes, databases, and DNS routing</li>
+          
         </ul>
       </div>
       <div class="col-md-4">
         <div class="text-center">
-          <img class="img-fluid icon my-4" src="../assets/lock_blue.png" alt="lock icon">
+          <img class="img-fluid icon mt-4 mb-3 pb-3 icon-shadow" src="../assets/lock_blue.png" alt="lock icon">
           <br>
-          <b>Security and More</b>
+          <b class="title-shadow">Security and More</b>
         </div>
         <ul class="mt-4 mr-1">
-          <li>Every website hosted by an AWS cloud webserver will recieve a secure SSL certificate. I can also handle this for you on your existing website depending on the server/host you are using.</li>
-          <li>All sensitive information such as passwords are properly encrypted or hashed and stored in a secure database behind a firewall.</li>
-          <li>All web forms that connect to the database or upload files are validated with multiple layers of security to prevent malicious attacks and identity theft.</li>
-          <li>Web Servers must undergo routine upgrades and updates to maintain the highest level of security and dependability for applications. Let me handle this for you. All servers that I administer recieve routine security updates and upgrades.</li>
-          <li>Do you need a mail server setup? An existing web server configured to host a new separate domain name? DNS record changes? For anything web server related, I offer my services as system administrator and deliver you top level functionality and reliability. </li>
+          <li>Every website I deploy for you will recieve a secure SSL certificate. I can also handle this for you on your existing website depending on the server/host you are using</li>
+
+          <li>All potentially sensitive information such as passwords and user data is properly encrypted or hashed and securely stored behind a firewall.</li>
+
+          <li>Web forms or API calls that create, update, or delete from a database or upload files are validated with multiple layers of security to prevent malicious attacks theft of information</li>
+
+          <li>Do you need a mail server setup? An existing web server configured differently? DNS record changes? For anything web server related, I offer my services as system administrator</li>
         </ul>
       </div>
     </div>
@@ -71,11 +74,13 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
-#services img.icon {
+
+img.icon {
 	width: 40%;
+  
 }
 
-#services img.aws {
+img.aws {
 	width: 50%;
 }
 
@@ -112,6 +117,15 @@ export default {
 	font-size: 14px;
 	margin-left: -15px;
 	margin-top: 15px;
+}
+
+.icon-shadow {
+  -webkit-filter: drop-shadow(5px 5px 5px darkgrey);
+  filter: drop-shadow(5px 5px 5px darkgrey);
+}
+
+.title-shadow {
+  text-shadow: 5px 5px 5px gainsboro;
 }
 
 </style>

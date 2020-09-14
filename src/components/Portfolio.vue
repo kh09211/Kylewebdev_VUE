@@ -9,10 +9,17 @@
 		<div class="row justify-content-center">
 
 			<div v-for="project in projectsReverse" :key="project.id" class="col-md-6">
-				<div class="text-center mt-4" @click="showModalFunc(project.id)">
-					<img class="img-fluid" :src="$apiUrl + '/photos/' + project.photos[0]" alt="screenshot photo" />
-					<br><br>
-					<h3><b>{{ project.name }}</b></h3>
+				<div class="text-center  mt-5 mb-4 project-box" @click="showModalFunc(project.id)">
+					
+					<h3 id="project-name" class="pb-1"><b>{{ project.name }}</b></h3>
+					<div id="project-photo-box">
+						<img src="../assets/titlebar.jpeg" class="img-fluid border-top border-left border-right rounded-top">
+						<!-- images 1100 x 825 -->
+						<img id="project-photo" class="img-fluid border" :src="$apiUrl + '/photos/' + project.photos[0]" alt="screenshot photo" />
+					</div>
+					<div id="project-techs" class="blue-font mt-3"><strong>{{ techsJoined(project.techs) }}</strong></div>
+					<div class="mt-0">Click to see more!<i class="far fa-hand-pointer ml-1"></i></div>
+					
 				</div>
 			</div>
 
@@ -44,7 +51,7 @@ export default {
 	methods: {
 		techsJoined: function(techs) {
 			// join the techs array into an inline list
-			return techs.join(", ");
+			return techs.join(" \u2022 ");
 		},
 		showModalFunc(id) {
 			this.projectToShow = id;
@@ -82,7 +89,7 @@ export default {
 		margin-bottom: 15vh;
 	}
 
-	a {
+	a, h3, .blue-font {
     	color: #3399CC;
 	}
 
@@ -91,4 +98,20 @@ export default {
 	text-decoration: none;
 	}
 
+	.project-box {
+		cursor: pointer;
+	}
+
+	#project-photo-box {
+		box-shadow: 5px 5px 6px gainsboro;
+	}
+
+	#project-name {
+		text-shadow: 5px 5px 4px gainsboro;
+	}
+
+	#project-techs {
+		text-shadow: 5px 5px 4px lightgray;
+	}
+	
 </style>

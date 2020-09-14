@@ -14,22 +14,29 @@
 						<h3 style="color: #3399CC;"><b>{{ project.name }}</b></h3>
 						
 						<!-- the carousel -->
-						<carousel-3d :controls-visible="true" :display="3">
+						<carousel-3d :controls-visible="true" :display="3" width="640" height="480">
 							<slide v-for="(photo, index) in photos" :key="index" :index="index">
 								<img class="img-fluid border-bottom" :src="$apiUrl + '/photos/' + project.photos[index]" alt="screenshot photo" />
 							</slide>
 						</carousel-3d>
 
 						<!-- the project info -->
-						<a :href="project.link" target="_blank">Link</a> to view website<br>
+						<div class="mt-n2">Technologies Used:</div>
+						<div class="row justify-content-center align-items-center mb-2 mt-n1 mx-3">
+							<div v-for="tech in techs" class="tech-chip mx-1 mt-2">{{ tech }}</div>
+						</div>
+
 						<span v-if="project.github == 'private'">
 							GitHub repository for this project is private<br>
 						</span>
 						<span v-else>
 							Check out the code at my <a :href="project.github" target="_blank">GitHub</a><br>
 						</span>
-						Technologies Used: <i>{{ techsJoined(project.techs) }}</i><br><hr>
-						<div class="desc"><i>{{ project.description }}</i></div>
+
+						<a :href="project.link" target="_blank">Link</a> to view website<br>
+
+						<hr>
+						<div class="desc mx-md-3"><i>{{ project.description }}</i></div>
 						
 					</div>
             	</div>
@@ -107,7 +114,7 @@ export default {
 	border-radius: 2px;
 	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.33);
 	transition: all 0.3s ease;
-	overflow-y: scroll;
+	overflow-y: auto;
   
 }
 
@@ -123,7 +130,7 @@ export default {
 }
 
 .carousel-3d-container {
-	max-width: 725px;
+	max-width: 1250px;
 }
 
 .carousel-3d-slide {
@@ -153,5 +160,18 @@ export default {
   transform: scale(1.1);
 }
 
+.tech-chip {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #696969;
+	border-radius: 5px; /* 15px for round */
+	padding: 2px 8px 2px 8px;
+	white-space: nowrap;
+	
+}
+
+.desc {
+	font-size: 17px;
+}
 
 </style>

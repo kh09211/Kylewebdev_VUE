@@ -32,7 +32,13 @@
 			  </div>
 		  </nav>
 		  <div class="text-center header-text">
-			  <h1 class="header-text1 text-light mt-3">Full-stack Developer</h1>
+        <transition appear
+          
+          enter-active-class="animated tada"
+          leave-active-class="animated bounceOutRight"
+        >
+			  <h1 class="header-text1 text-light mt-3 animate_animated animate_bounce">Full-Stack Developer</h1>
+        </transition>
 			  <h6 class="header-text2 text-light"><i>A mission for quality work and a passion for the abstract concepts behind the text</i></h6>
 		  </div>
 	  </div>

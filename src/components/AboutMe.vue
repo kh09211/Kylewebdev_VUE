@@ -5,7 +5,7 @@
 			<h1 class="display-4 mb-5" style="color: #3399CC;"><i><u>About me</u></i></h1>
 			<br>
 			<div class="text-center">
-				<img src="../assets/kyle.jpg" alt="kyle_photo" style="width: 25%;" class="rounded border border-dark">
+				<img src="../assets/kyle.jpg" alt="kyle_photo" style="width: 200px;" class="rounded border border-dark">
 			</div>
 			<div class="text-left">
 				<br>

@@ -4,7 +4,7 @@
 			<div class="row justify-content-center">
 				<div class="col-md-8 my-5">
 					<div class="card">
-						<h5 class="card-header text-center">Add a New Project</h5>
+						<h5 class="card-header text-center">Edit Project</h5>
 						<div class="card-body">
 							<label for="name" class="mt-3">Project Name:</label>
 							<input type="text" class="form-control" id="name" aria-describedby="name" :value="project.name">
