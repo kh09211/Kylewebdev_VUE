@@ -2,7 +2,7 @@
 	<transition name="modal">
         <div class="modal-mask">
           	<div class="modal-wrapper">
-            	<div class="modal-container border">
+            	<div class="modal-container border bg-light">
 
 					<!-- the close button -->
 					<div class="close-modal-button row align-items-center mr-3 mr-md-5" @click="$emit('close')">
@@ -11,10 +11,10 @@
 					
 					<!-- the inside of the modal -->
 					<div class="rounded text-center mt-4">
-						<h3 style="color: #3399CC;"><b>{{ project.name }}</b></h3>
+						<h3 id="project-name" style="color: #3399CC;"><b>{{ project.name }}</b></h3>
 						
 						<!-- the carousel -->
-						<carousel-3d :controls-visible="true" :display="3" width="640" height="480">
+						<carousel-3d :controls-visible="true" :display="3" width="550" height="412">
 							<slide v-for="(photo, index) in photos" :key="index" :index="index">
 								<img class="img-fluid border-bottom" :src="$apiUrl + '/photos/' + project.photos[index]" alt="screenshot photo" />
 							</slide>
@@ -172,6 +172,10 @@ export default {
 
 .desc {
 	font-size: 17px;
+}
+
+#project-name {
+	text-shadow: 5px 5px 4px gainsboro;
 }
 
 </style>

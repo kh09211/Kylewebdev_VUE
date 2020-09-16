@@ -1,6 +1,6 @@
 <template>
   	<div id="resume" class="bluebox text-center">
-		<h1 class="display-4 text-light"><i><u>Skillset</u></i></h1>
+		<h1 id="skillset-heading" class="display-4 text-light"><i>Skillset</i></h1>
 		<br>
 		<br>
 		<div class="container">
@@ -42,7 +42,16 @@
 			</div>
 			<div class="row justify-content-center">
 				<form action="#contact">
-					<button class="btn btn-outline-light mt-5" type="submit" style="font-size:16px;">Hire Kyle</button>
+
+					<div id="hire-photo3"></div>
+
+					<transition
+						name="hire-transition3"
+						enter-active-class="animate__animated animate__tada"
+						>
+							<button id="hire-button3" v-show="hireVisible" class="btn btn-outline-light mt-5" type="submit" style="font-size:16px;">Hire Kyle</button>
+					</transition>
+					
 				</form>
 			</div>
 		</div>
@@ -50,8 +59,24 @@
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
   name: 'Resume',
+  data() {
+	  return {
+		   hireVisible: false
+	  }
+  },
+  mounted() {
+	// jquery to determin if button is visible note:arrow function used to access parent scope
+	$(window).on('scroll', () => {
+		if (this.$isInViewport(document.getElementById('hire-photo3'), 85)) {
+			this.hireVisible = true;
+		}
+	});
+  }
+ 
 }
 </script>
 
@@ -68,13 +93,16 @@ div.bluebox {
 
 #resume ul {
 	/* background-color: grey; */
-	display: inline-block;
+	
+	display: block;
+	float: left;
 }
 
 #resume ul b {
-	color: #68D4DB;
+	color: #505050;
 	font-size: 25px;
 	margin-top: 10px;
+	
 }
 
 #resume ul li {
@@ -83,4 +111,7 @@ div.bluebox {
 	margin-top: 10px;
 }
 
+#skillset-heading {
+	text-shadow: 5px 5px 2px gainsboro;
+}
 </style>

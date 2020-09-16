@@ -3,7 +3,12 @@
     <div class="row justify-content-center mt-2">
       <div class="col-md-4">
         <div class="text-center">
-          <img class="img-fluid icon mt-3 pt-3 mb-4 icon-shadow" src="../assets/gearicon_blue.png" alt="gear icon">
+          <transition appear
+          name="gear-transition"
+          enter-active-class="animate__animated animate__fadeInUp"
+          >
+              <img class="img-fluid icon mt-3 pt-3 mb-4 icon-shadow" src="../assets/gearicon_blue.png" alt="gear icon">
+          </transition>
           <br>
           <b class="title-shadow">Web Development</b>
         </div>
@@ -21,7 +26,12 @@
       </div>
       <div class="col-md-4">
         <div class="text-center mb-2">
-          <img class="img-fluid icon mt-3 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
+          <transition appear
+          name="aws-transition"
+          enter-active-class="animate__animated animate__fadeInUp"
+          >
+              <img class="img-fluid icon mt-3 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
+          </transition>
           <br>
           <b class="title-shadow">Hosting and AWS</b>
         </div>
@@ -38,7 +48,12 @@
       </div>
       <div class="col-md-4">
         <div class="text-center">
-          <img class="img-fluid icon mt-4 mb-3 pb-3 icon-shadow" src="../assets/lock_blue.png" alt="lock icon">
+          <transition appear
+          name="lock-transition"
+          enter-active-class="animate__animated animate__fadeInUp"
+          >
+             <img class="img-fluid icon mt-4 mb-3 pb-3 icon-shadow" src="../assets/lock_blue.png" alt="lock icon">
+          </transition>
           <br>
           <b class="title-shadow">Security and More</b>
         </div>
@@ -57,17 +72,38 @@
       <p class="mx-5 text-center">Free consultation, flexible payment options, price quotes per small job or hourly rates for large projects</p>
     </div>
     <div class="row justify-content-center align-items-center d-flex pb-5 pt-2">
-        <div><img class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px"></div>
+        <div><img id="hire-photo" class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px"></div>
         <form action="#contact">
-          <button class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
+
+          <transition
+          name="hire-transition"
+          enter-active-class="animate__animated animate__tada"
+          >
+              <button id="hire-button" v-show="hireVisible" class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
+          </transition>
+          
         </form>
     </div>
   </div>
 </template>
 
 <script>
+import $ from 'jquery';
 export default {
   name: 'Services',
+  data() {
+    return {
+      hireVisible: false
+    }
+  },
+  mounted() {
+    // jquery to determin if button is visible note:arrow function used to access parent scope
+    $(window).on('scroll', () => {
+      if (this.$isInViewport(document.getElementById('hire-photo'), 85)) {
+        this.hireVisible = true;
+      }
+    });
+  }
 }
 </script>
 
@@ -100,6 +136,9 @@ img.aws {
 #services {
 	margin-top: 10vh;
 	margin-bottom: 5vh;
+
+  --animate-duration: 1.3s; /* controls speed of icon transitions */
+
 }
 
 #services ul {

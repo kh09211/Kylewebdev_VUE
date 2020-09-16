@@ -1,11 +1,23 @@
 <template>
-  <div class="header"> <!-- boder bottom txt went here -->
+  <div class="header">
 	  <div class="header_photo text-center" id="top">
 		  <nav class="navbar navbar-expand-lg navbar-dark">
-			  <a class="navbar-brand ml-2" href="#contact"><img class="logo" src="../assets/gear2.png" />&nbsp;<b>Kyle Hopkins</b></a>
+
+        <transition appear
+          name="big-header-transition"
+          enter-active-class="animate__animated animate__fadeInLeft"
+          >
+			      <a class="navbar-brand ml-2 text-light" href="#contact"><img class="logo" src="../assets/gear2.png" />&nbsp;<b>Kyle Hopkins</b></a>
+        </transition>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
 			  </button>
+        
+
+         <transition appear
+          name="big-header-transition"
+          enter-active-class="animate__animated "
+          >
 			  <div class="collapse navbar-collapse flex-row-reverse mr-3" id="navbarNav">
 			    <ul class="navbar-nav">
 			      <li class="nav-item">
@@ -30,16 +42,22 @@
 			      </li>
 			    </ul>
 			  </div>
+        </transition>
+
 		  </nav>
 		  <div class="text-center header-text">
         <transition appear
-          
-          enter-active-class="animated tada"
-          leave-active-class="animated bounceOutRight"
-        >
-			  <h1 class="header-text1 text-light mt-3 animate_animated animate_bounce">Full-Stack Developer</h1>
+          name="big-header-transition"
+          enter-active-class="animate__animated animate__zoomIn"
+          >
+			      <h1 class="header-text1 text-light mt-3">Full-Stack Developer</h1>
         </transition>
-			  <h6 class="header-text2 text-light"><i>A mission for quality work and a passion for the abstract concepts behind the text</i></h6>
+        <transition appear
+          name="big-header-transition"
+          enter-active-class="animate__animated animate__zoomIn"
+          >
+			      <h6 class="header-text2 text-light"><i>A mission for quality work and a passion for the abstract concepts behind the text</i></h6>
+        </transition>
 		  </div>
 	  </div>
   </div>
@@ -49,8 +67,13 @@
 
 export default {
   name: 'NavHeader',
-  props: {
-    //
+  data() {
+    return {
+      
+    }
+  },
+  mounted() {
+
   }
 }
 </script>
@@ -58,6 +81,9 @@ export default {
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
 
+.header {
+  --animate-duration: 1.5s;
+}
 
 .header_photo {
     background-color: #3399CC;
@@ -86,6 +112,10 @@ a.navbar-brand {
     color: white;
     font-size: 35px;
     font-family: 'Roboto', sans-serif;
+}
+
+a.navbar-brand:hover {
+  color: white !important;
 }
 
 div.header-text {
@@ -123,6 +153,7 @@ h6.header-text2 {
 
     h1.header-text1 {
         font-size: 30px;
+        display: block;
     }
 
     h6.header-text2 {

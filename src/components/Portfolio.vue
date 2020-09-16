@@ -2,7 +2,7 @@
 	<div id="portfolio" class="container">
 		<br>
 		<div class="container-md" style="text-align: center;">
-			<h1 style="color: #3399CC;"><em><u>Portfolio</u></em></h1>
+			<h1 id="header-text"><em>Portfolio</em></h1>
 			<br>
 			<p class="mt-3 mx-3 pb-3">&nbsp; Hello! My name is Kyle and I'm a Web Developer from the United States. I handle everything from the webserver and database to custom front end styling. Here you will find some of my personal projects and freelance work that I have completed along with their descriptions and code. Check out my <a href="http://github.com/kh09211" target="_blank">GitHub!</a> For more info about me, see my <a href="#about">About</a> page.</p>
 		</div>
@@ -25,9 +25,23 @@
 
 		</div>
 		<div class="row justify-content-center align-items-center d-flex pt-5">
-			<div><img class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px"></div>
+			<div id="hire-photo2"></div>
+			<transition
+				name="hire-transition2-1"
+				enter-active-class="animate__animated animate__fadeIn"
+				>
+					<div v-show="hireVisible"><img class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px"></div>
+				</transition>
+
 			<form action="#contact">
-				<button class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
+
+				<transition
+				name="hire-transition2-2"
+				enter-active-class="animate__animated animate__fadeIn"
+				>
+					<button id="hire-button2" v-show="hireVisible" class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
+				</transition>
+
 			</form>
 		</div>
 
@@ -38,6 +52,7 @@
 
 <script>
 import ShowModal from '@/components/ShowModal.vue';
+import $ from 'jquery';
 
 export default {
   	name: 'Portfolio',
@@ -46,6 +61,7 @@ export default {
 		return {
 		showTheModal: false,
 		projectToShow: null,
+		hireVisible: false,
 		}
 	},
 	methods: {
@@ -67,6 +83,13 @@ export default {
 	mounted() {
 		// refresh the state by calling dispatch in vuex
 		this.$store.dispatch('refreshProjectsArr');
+
+		// jquery to determin if button is visible note:arrow function used to access parent scope
+		$(window).on('scroll', () => {
+			if (this.$isInViewport(document.getElementById('hire-photo2'), 85)) {
+				this.hireVisible = true;
+			}
+		});
 	}
 }
 </script>
@@ -112,6 +135,11 @@ export default {
 
 	#project-techs {
 		text-shadow: 5px 5px 4px lightgray;
+	}
+
+	#header-text {
+		color: #3399CC;
+		text-shadow: 5px 5px 4px gainsboro;
 	}
 	
 </style>

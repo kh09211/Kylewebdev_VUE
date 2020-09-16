@@ -1,5 +1,5 @@
 <template>
-   <main id="main">
+   <main id="main" class="bg-light">
     <nav-header></nav-header>
     <div class="divider-box"></div>
     <services></services>

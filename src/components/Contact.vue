@@ -2,26 +2,57 @@
 	<div id="contact" class="bg-dark">
 		<div class="container-md text-center">
 			<br>
-			<h1 class="text-light display-4">Contact Kyle!</h1>
+			<h1 id="contact-trip" class="text-light display-4 text-light">Contact Kyle!</h1>
 			<br>
 			<div id="contact-form">
-				
-					<label class="text-light mt-4" for="name"><input type="text" id="name" placeholder="Enter your name" name="the_name" class="form-control" required /></label>
+					<transition
+						name="contact-transition1"
+						enter-active-class="animate__animated animate__fadeInUp"
+						>
+							<label v-show="showTransition" class="text-light mt-4" for="name"><input type="text" id="name" placeholder="Enter your name" name="the_name" class="form-control" required autofocus/></label>
+					</transition>
+
 					<br>
-					<label class="text-light mt-3" for="email"><input type="email" placeholder="Enter email address" id="email" name="email" class="form-control" required /></label>
+					
+					<transition
+						name="contact-transition2"
+						enter-active-class="animate__animated animate__fadeInUp"
+						>
+							<label v-show="showTransition" class="text-light mt-3" for="email"><input type="email" placeholder="Enter email address" id="email" name="email" class="form-control" required /></label>
+					</transition>
+					
 					<br>
-					<label class="mt-3" for="textbox" required><textarea id="textbox" name="textbox" placeholder="How can I help you?" class="form-control"></textarea></label>
+					
+					<transition
+						name="contact-transition3"
+						enter-active-class="animate__animated animate__fadeInUp"
+						>
+							<label v-show="showTransition" class="mt-3" for="textbox" required><textarea id="textbox" name="textbox" placeholder="How can I help you?" class="form-control"></textarea></label>
+					</transition>
+					
 					<br>
-					<button v-on:click="sendEmail" name="submit" class="btn btn-primary mt-3">Send!</button>
-				
+
+					<transition
+						name="contact-transition4"
+						enter-active-class="animate__animated animate__bounceIn animate__delay-1s"
+						>
+							<button v-show="showTransition" v-on:click="sendEmail" name="submit" class="btn btn-primary mt-3">Send!</button>
+					</transition>
 			</div>
 		</div>
 	</div>
 </template>
 
 <script>
+import $ from 'jquery';
+
 export default {
   name: 'Contact',
+  data() {
+	  return {
+		  showTransition: false
+	  }
+  },
   methods: {
 	  sendEmail: function() {
 		  let apiUrl = process.env.VUE_APP_API_URL;
@@ -49,7 +80,15 @@ export default {
 		  })
 		  .catch(err => console.log(err));
 	  }
-  }
+  },
+	mounted() {
+		// jquery to determine when to fire transiton note:arrow function used to access parent scope
+		$(window).on('scroll', () => {
+			if (this.$isInViewport(document.getElementById('contact-trip'), 150)) {
+				this.showTransition = true;
+			}
+		});
+	}
 }
 </script>
 
@@ -59,6 +98,7 @@ export default {
 #contact {
 	padding-top: 15vh;
 	padding-bottom: 15vh;
+	min-height: 50vw;
 }
 
 div#contact-form textarea {
