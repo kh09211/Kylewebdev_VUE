@@ -1,12 +1,12 @@
 <template>
   	<div id="resume" class="bluebox text-center">
-		<h1 id="skillset-heading" class="display-4 text-light"><i>Skillset</i></h1>
+		<h1 id="skillset-heading" class="display-4 text-dark"><i>Skillset</i></h1>
 		<br>
 		<br>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-md-10  offset-md-1 text-left">
-					<ul class=""><b>Back End Development</b>
+					<ul><b>Back End Development</b>
 						<li>PHP 7 best practices and design principles, Object Orientated Programming, and use of Composer</li>
 						<li>Laravel framework for PHP and use of Artisan, Blade templating, Eloquent models, Tinker, database 
 					<br>migrations user authentication, authorization, routes, controllers, webpack, and caching with Reddis</li>
@@ -49,7 +49,7 @@
 						name="hire-transition3"
 						enter-active-class="animate__animated animate__tada"
 						>
-							<button id="hire-button3" v-show="hireVisible" class="btn btn-outline-light mt-5" type="submit" style="font-size:16px;">Hire Kyle</button>
+							<button id="hire-button3" v-show="hireVisible" class="btn btn-outline-dark mt-5" type="submit" style=" ">Hire Kyle</button>
 					</transition>
 					
 				</form>
@@ -99,19 +99,28 @@ div.bluebox {
 }
 
 #resume ul b {
-	color: #505050;
+	color: #343a40;
+	text-shadow: 0px 0px 2px whitesmoke;
 	font-size: 25px;
 	margin-top: 10px;
 	
 }
 
 #resume ul li {
-	color: white;
-	font-size: 16px;
+	color: #282828;
+	/* text-shadow: 0px 0px 1px whitesmoke; */
+	font-size: 17px;
 	margin-top: 10px;
 }
 
 #skillset-heading {
-	text-shadow: 5px 5px 2px gainsboro;
+	text-shadow: 0px 0px 4px whitesmoke;
 }
+
+#hire-button3 {
+	font-size:16px;
+	box-shadow: 0px 0px 2px whitesmoke;
+	
+}
+
 </style>

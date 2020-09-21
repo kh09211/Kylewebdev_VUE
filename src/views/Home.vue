@@ -63,7 +63,7 @@ div.divider-box {
 div.divider-box-wide {
 	background-color: #3399CC;
 	width: 100%;
-	height: 50px;
+	height: 40px;
 }
 
 </style>

@@ -7,7 +7,7 @@
           name="big-header-transition"
           enter-active-class="animate__animated animate__fadeInLeft"
           >
-			      <a class="navbar-brand ml-2 text-light" href="#contact"><img class="logo" src="../assets/gear2.png" />&nbsp;<b>Kyle Hopkins</b></a>
+			      <a class="navbar-brand ml-2 text-light" href="#contact"><img class="logo" src="../assets/gear2.png" />&nbsp;Kyle Hopkins</a>
         </transition>
 			  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
 			    <span class="navbar-toggler-icon"></span>
@@ -35,11 +35,13 @@
 			      <li class="nav-item">
 			        <a class="nav-link" href="#contact">Contact</a>
 			      </li>
+            <!--
 			      <li class="nav-item">
 			        <form action="#contact">
 			          <button class="btn btn-outline-light ml-2 mt-2" type="submit" style="padding: 2px 7px 2px 7px;">Hire</button>
 	            </form>
 			      </li>
+            -->
 			    </ul>
 			  </div>
         </transition>
@@ -100,22 +102,32 @@ a.nav-link {
   font-family: 'Roboto', sans-serif;
   font-size: 20px;
   color: #FFFFFF !important;
+  padding-bottom: 4px;
+  text-shadow: 0px 0px 5px #404040;
+  margin: 0 2px 0 2px; /* if using hire button remove margins */
+  
 }
 
 a.nav-link:hover {
+  border-bottom: 3px solid #68D4DB;
+  margin-bottom: -3px;
+  /*
   font-size: 22px;
   margin-bottom: -5px;
   margin-right: -6px;
+  */
 }
 
 a.navbar-brand {
-    color: white;
+    color: whitesmoke;
     font-size: 35px;
     font-family: 'Roboto', sans-serif;
+    text-shadow: 0px 0px 6px #404040;
 }
 
 a.navbar-brand:hover {
-  color: white !important;
+  color: whitesmoke !important;
+  
 }
 
 div.header-text {
@@ -133,16 +145,21 @@ h1 {
 h1.header-text1 {
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 40px;
+    text-shadow: 0px 0px 6px #404040;
 }
 
 h6.header-text2 {
     font-family: 'Rubik Mono One', sans-serif;
     font-size: 22px;
     margin: 0 20% 0 20%;
+    text-shadow: 0px 0px 4px #404040
 }
 
 .logo {
-    width: 50px;
+  width: 50px;
+  -webkit-filter: drop-shadow(0px 0px 7px #505050);
+  filter: drop-shadow(0px 0px 7px #505050);
+  color: whitesmoke;
 }
 
 @media screen and (max-width: 720px) {

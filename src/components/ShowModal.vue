@@ -22,6 +22,7 @@
 
 						<!-- the project info -->
 						<div class="mt-n2">Technologies Used:</div>
+
 						<div class="row justify-content-center align-items-center mb-2 mt-n1 mx-3">
 							<div v-for="tech in techs" class="tech-chip mx-1 mt-2">{{ tech }}</div>
 						</div>
@@ -33,10 +34,12 @@
 							Check out the code at my <a :href="project.github" target="_blank">GitHub</a><br>
 						</span>
 
+						<div id="show-more" v-show="showMore" class="text-right mr-5 mt-n4">Read More <i class="fas fa-caret-down"></i></div>
+						
 						<a :href="project.link" target="_blank">Link</a> to view website<br>
 
 						<hr>
-						<div class="desc mx-md-3"><i>{{ project.description }}</i></div>
+						<div id="project-desc" class="desc mx-md-3"><i>{{ project.description }}</i></div>
 						
 					</div>
             	</div>
@@ -47,6 +50,8 @@
 
 <script>
 import { Carousel3d, Slide } from 'vue-carousel-3d';
+import $ from 'jquery';
+
 export default {
 	name: 'ShowModal',
 	components: {
@@ -55,7 +60,7 @@ export default {
 	},
 	data() {
 		return {
-			
+			showMore: false
 		}
 	},
 	props: ['projectId'],
@@ -74,12 +79,28 @@ export default {
 		techsJoined: function(techs) {
 			// join the techs array into an inline list
 			return techs.join(", ");
-		}
+		},
+		visibleLogic() {
+			// note: arrow function used to access parent scope
+
+			if (this.$isInViewport(document.getElementById('project-desc'), 40)) {
+				this.showMore = false;
+			} else {
+				this.showMore = true;
+			}
+		},
 	},
 	mounted() {
-		//console.log('modal_mounted')
-		//setTimeout(() => console.log(document.getElementById('photos')), 10000);
-		
+
+		// jquery to determin if desc is visible in modal on scroll/resize
+		$('.modal-container').on('scroll', () => {
+			this.visibleLogic()
+		});
+		$(window).on('resize', () => {
+			this.visibleLogic()
+		});
+
+		setTimeout(() => {this.visibleLogic()}, 200);
 	}
 }
 </script>

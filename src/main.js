@@ -21,7 +21,7 @@ Vue.prototype.$isInViewport = function(elem, height = 0) {
   let elementBottom = elementTop + $(elem).outerHeight();
   let viewportTop = $(window).scrollTop();
   let viewportBottom = viewportTop + $(window).height();
-
+  
   return elementBottom > viewportTop && elementTop < viewportBottom;
 };
 

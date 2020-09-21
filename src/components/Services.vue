@@ -30,7 +30,7 @@
           name="aws-transition"
           enter-active-class="animate__animated animate__fadeInUp"
           >
-              <img class="img-fluid icon mt-3 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
+              <img class="img-fluid icon mt-4 mb-1 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
           </transition>
           <br>
           <b class="title-shadow">Hosting and AWS</b>
@@ -81,7 +81,7 @@
           >
               <button id="hire-button" v-show="hireVisible" class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
           </transition>
-          
+
         </form>
     </div>
   </div>
@@ -153,7 +153,7 @@ img.aws {
 
 #services ul li {
 	color: black;
-	font-size: 14px;
+	font-size: 15px;
 	margin-left: -15px;
 	margin-top: 15px;
 }
