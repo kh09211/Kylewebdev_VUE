@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import router from './router'
 import store from './store'
 import $ from 'jquery'
+import 'animate.css';
 
 
 
