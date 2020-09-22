@@ -50,7 +50,6 @@
 
 <script>
 import { Carousel3d, Slide } from 'vue-carousel-3d';
-import $ from 'jquery';
 
 export default {
 	name: 'ShowModal',

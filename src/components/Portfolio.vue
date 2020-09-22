@@ -52,7 +52,6 @@
 
 <script>
 import ShowModal from '@/components/ShowModal.vue';
-import $ from 'jquery';
 
 export default {
   	name: 'Portfolio',

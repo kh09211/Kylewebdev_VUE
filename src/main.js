@@ -5,11 +5,11 @@ import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import router from './router'
 import store from './store'
-import $ from 'jquery'
 import 'animate.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 
-
+// Adding jQuery to the window object makes it available globally. this uses requre instead of import
+window.$ = window.jQuery = require('jquery');
 
 // Add axios to the prototype so that it can be used in all components with this.$http
 Vue.prototype.$http = Axios;
