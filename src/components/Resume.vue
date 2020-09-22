@@ -25,8 +25,8 @@
 						<li>Payment integrations using Stripe, Paypal, Laravel Cashier, WooCommerce, and Wordpress</li>
 					</ul>
 					<ul><b>Front End Technologies</b>
-						<li>Javascript (ES6),  API/AJAX calls using Axios and jQuery, custom carousels, modals, and pop-ups</li>
-						<li>Single Page Applications (SPAs) as static websites and integration of back end APIs for CRUD ops</li>
+						<li>Javascript (ES6),  API/AJAX calls using Axios and jQuery, customized carousels, modals, and pop-ups</li>
+						<li>Single Page Applications (SPA) principles, state management, and integration with back end APIs</li>
 						<li>Vue.js framework for Javascript and the use of VueX, Vue-CLI, Vue Router, and authorization gates</li>
 						<li>HTML 5 markup, visual design, applied accessibility, and mobile first website design principles</li>
 						<li>Bootstrap 4, CSS 3, CSS Flexbox, CSS Grid, SASS, media queries, CSS animations and transitions</li>
