@@ -40,9 +40,9 @@
 
           <li>Once complete, your website is your property. Host, store, and deploy your web apps wherever you like. Or, let  me handle this for you</li>
 
-          <li>Your applications are scalable so that as your needs grow, your hosting, database, and resources can grow along with you. Changes can happen within minutes, not days or weeks</li>
+          <li>With the services and technologies I use, your applications are scalable so that as your needs grow, your hosting, database, and resources can grow along with you. Some changes can happen within minutes, not days or weeks</li>
 
-          <li>Want to be in control of everything? Let me help you set up your own hosting solution utilizing your own Amazon AWS Cloud webserver, storage volumes, databases, and DNS routing</li>
+          <li>Want to be in control of everything? We can get you set up with a hosting solution that you own and control utilizing a Amazon AWS Cloud webservers, storage volumes, databases, and DNS routing</li>
           
         </ul>
       </div>
@@ -58,13 +58,15 @@
           <b class="title-shadow">Security and More</b>
         </div>
         <ul class="mt-4 mr-1">
-          <li>Every website I deploy for you will recieve a secure SSL certificate. I can also handle this for you on your existing website depending on the server/host you are using</li>
+          <li>Every website I deploy for you will recieve a secure SSL certificate. I can also install this for you on an existing website depending on the type of hosting/server you are using</li>
 
           <li>All potentially sensitive information such as passwords and user data is properly encrypted or hashed and securely stored behind a firewall.</li>
 
           <li>Web forms or API calls that create, update, or delete from a database or upload files are validated with multiple layers of security to prevent malicious attacks theft of information</li>
 
-          <li>Do you need a mail server setup? An existing web server configured differently? DNS record changes? For anything web server related, I offer my services as system administrator</li>
+          <li>I can create professionally styled email templates with custom CSS and dynamic data</li>
+
+          <li>Do you need a mail server setup? An existing web server configured differently? DNS record changes? For anything web server related, I offer my services as system administrator!</li>
         </ul>
       </div>
     </div>
