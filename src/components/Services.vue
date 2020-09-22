@@ -30,7 +30,7 @@
           name="aws-transition"
           enter-active-class="animate__animated animate__fadeInUp"
           >
-              <img class="img-fluid icon mt-4 mb-1 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
+              <img class="img-fluid icon mt-3 mb-1 aws icon-shadow" src="../assets/aws_logo2.png" alt="aws icon">
           </transition>
           <br>
           <b class="title-shadow">Hosting and AWS</b>
