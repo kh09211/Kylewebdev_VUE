@@ -7,6 +7,7 @@ import router from './router'
 import store from './store'
 import $ from 'jquery'
 import 'animate.css';
+import '@fortawesome/fontawesome-free/css/all.css';
 
 
 
