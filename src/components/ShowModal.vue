@@ -34,7 +34,7 @@
 							Check out the code at my <a :href="project.github" target="_blank">GitHub</a><br>
 						</span>
 
-						<div id="show-more" v-show="showMore" class="text-right mr-5 mt-n4">Read More <i class="fas fa-caret-down"></i></div>
+						<div id="show-more" v-show="showMore" class="text-right mr-5 mt-n4">Scroll for more <i class="fas fa-caret-down"></i></div>
 						
 						<a :href="project.link" target="_blank">Link</a> to view website<br>
 
