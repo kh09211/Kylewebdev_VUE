@@ -75,8 +75,10 @@ export default {
 	},
 	computed: {
 		projectsReverse() {
-			// return reversed array from the state
-			return this.$store.state.projectsArr.reverse();
+			// return reversed array from the state and only show visible projects
+			
+			return this.$store.state.projectsArr.reverse().filter(project => project.visible == 1);
+			
 		}
 	},
 	mounted() {

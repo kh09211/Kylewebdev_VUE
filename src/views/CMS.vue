@@ -34,6 +34,7 @@
               <thead>
                 <tr>
                   <th scope="col" class="ml-2">Order</th>
+                  <th scope="col">Visible</th>
                   <th scope="col">Project</th>
                   <th scope="col">Edit</th>
                   <th scope="col">Delete</th>
@@ -42,6 +43,7 @@
               <tbody>
                 <tr v-for="project in projectsArr" :key="project.id">
                   <td><input type="text" :value="project.order" class="ml-2" v-on:keyup="checkIds($event)" name="projectIds" :ref="project.order"></th>
+                  <td><i v-if="project.visible == 1" class="fas fa-check ml-3 text-success"></i></td>
                   <td><a href="#" @click="showModalFunc(project.id)">{{ project.name }}</a></td>
                   <td><router-link :to="'/cms/' + project.id + '/edit'" class="ml-1"><i class="far fa-edit"></i></router-link></td>
                   <td><a href="#" v-on:click="deleteProject(project.id)"><i class="fas fa-trash-alt ml-3"></i></a></td>
@@ -160,8 +162,8 @@ export default {
 }
 
 td input {
-  width:27px;
-  text-indent: 3px;
+  width:35px;
+  /* text-indent: 1px; */
 }
 
 </style>

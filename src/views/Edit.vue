@@ -6,6 +6,11 @@
 					<div class="card">
 						<h5 class="card-header text-center">Edit Project</h5>
 						<div class="card-body">
+							<div class="d-flex row justify-content-center">
+								<label for="visible" class="mt-3">Visible:</label>
+								<input type="checkbox" class="form-check ml-2 mt-2" id="visible" aria-describedby="visible" v-model="visibleCheckbox">
+							</div>
+
 							<label for="name" class="mt-3">Project Name:</label>
 							<input type="text" class="form-control" id="name" aria-describedby="name" :value="project.name">
 
@@ -62,7 +67,8 @@ export default {
 		return {
 			photo: null,
 			projectAdded: true,
-			file: ''
+			file: '',
+			visibleCheckbox: true
 		}
 	},
 	computed: {
@@ -77,7 +83,7 @@ export default {
 		},
 		techs() {
 			return this.project.techs;
-		}
+		},
 	},
 	methods: {
 		addTech() {
@@ -119,6 +125,7 @@ export default {
 					editedProject[input] = document.getElementById(input).value;
 				});
 				editedProject.techs = this.techs;
+				editedProject.visible = this.visibleCheckbox;
 				
 				// dispatch action with project data
 				this.$store.dispatch('editProject', editedProject);
@@ -158,6 +165,9 @@ export default {
 	mounted() {
 		//console.log(this.photos)
 		//setTimeout(() => console.log(document.getElementById('photos')), 10000);
+
+		// set the visible checkbox
+		this.visibleCheckbox = (this.project.visible == 0) ? false : true;
 		
 	}
 }
