@@ -9,7 +9,7 @@
 
 					<ul><b>Back End Technologies</b>
 						<li>PHP 7 best practices, use of Composer, class autoloaders, class inheritance, traits, and type hinting</li>
-						<li>Node.js and Express Javascript frameworks, routing, database queries, JSON web tokens, deployment</li>
+						<li>Node.js and Express Javascript frameworks, routing, database queries, JSON web tokens, and NPM</li>
 						<li>Laravel framework for PHP and use of artisan, Blade templating, Eloquent ORM, tinker, database 
 					<br>migrations, user authentication, authorization, routes, resource controllers, caching and Redis</li>
 						<li>REST API and Microservices using LUMEN framework for PHP and Express.js framework for Node</li>
