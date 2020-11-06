@@ -19,7 +19,7 @@
 					</ul>
 					<ul><b>Front End Technologies</b>
 						<li>Javascript (ES6), API/AJAX calls using Axios and jQuery, customized carousels, modals, and pop-ups</li>
-						<li>React library for Javascript and creation of user interfaces using components, props, and events</li>
+						<li>React.js library for Javascript and creation of user interfaces using components, props, and events</li>
 						<li>Vue.js framework for Javascript and the use of VueX, Vue-CLI, Vue Router, and authorization gates</li>
 						<li>Single Page Applications (SPA) principles, state management, and integration with back end APIs</li>
 						<li>HTML 5 markup, visual design, applied accessibility, and mobile first website design principles</li>
