@@ -31,12 +31,12 @@
 							GitHub repository for this project is private<br>
 						</span>
 						<span v-else>
-							Check out the code at my <a :href="project.github" target="_blank">GitHub</a><br>
+							Check out the code on <a :href="project.github" target="_blank">GitHub</a><br>
 						</span>
 
 						<div id="show-more" v-show="showMore" class="text-right mr-5 mt-n4">Scroll for more <i class="fas fa-caret-down"></i></div>
 						
-						<a :href="project.link" target="_blank">Link</a> to view website<br>
+						<a :href="project.link" target="_blank" class="d-block mt-1">Link to view website</a>
 
 						<hr>
 						<div id="project-desc" class="desc mx-md-3"><i>{{ project.description }}</i></div>
