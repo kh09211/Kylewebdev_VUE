@@ -15,13 +15,10 @@
         <ul class="mt-4 mr-1">
           <li>From small static sites to large ground-up dynamic applications, let's come up with the perfect solution to fit your needs</li>
 
-          <li>My fully responsive and mobile ready websites can support a scalable user base, authentication, registration, and password management</li>
+          <li>My fully responsive and mobile ready websites can support a scalable user base, authentication, registration, custom content management systems, messages, and more</li>
 
-          <li>Stay up to date with custom content management systems. Keep users connected through comments, messages, posts, and subscribes</li>
+          <li>As a full-stack developer, I can make changes or add features to your existing website from database to front end using Javascript, HTML, CSS, PHP, Wordpress, React, etc.</li>
 
-          <li>I can make changes or add features to your existing website using HTML, CSS, PHP, Javascript, Wordpress, databases, and more</li>
-
-          <li>As a team player, I would love the opportunity to work alongside your existing team. I'm a fast learner and can get up to speed quickly!</li>
         </ul>
       </div>
       <div class="col-md-4">
@@ -36,13 +33,10 @@
           <b class="title-shadow">Hosting and AWS</b>
         </div>
         <ul class="mt-4 mr-1">
-          <li>Large applications require complex deployment, database migrations, and caching. Let me handle this for you using the same services as companies like Netflix, Airbnb, and Expedia</li>
+          <li>Modern web applications require complex deployment, database migrations, and caching. I perfer to use Amazon's proven cloud technology, however we can host or deploy your application to wherever you like. Your website is your property</li>
 
-          <li>Once complete, your website is your property. Host, store, and deploy your web apps wherever you like. Or, let  me handle this for you</li>
 
-          <li>With the services and technologies I use, your applications are scalable so that as your needs grow, your hosting, database, and resources can grow along with you. Some changes can happen within minutes, not days or weeks</li>
-
-          <li>Want to be in control of everything? We can get you set up with a hosting solution that you own and control utilizing a Amazon AWS Cloud webservers, storage volumes, databases, and DNS routing</li>
+          <li>With the services and technologies I perfer to use, your applications are scalable so that as your needs grow, your hosting, database, and resources can grow along with you. Some changes can happen within minutes, not days or weeks</li>
           
         </ul>
       </div>
@@ -58,15 +52,14 @@
           <b class="title-shadow">Security and More</b>
         </div>
         <ul class="mt-4 mr-1">
-          <li>Every website I deploy for you will recieve a secure SSL certificate. I can also install this for you on an existing website depending on the type of hosting/server you are using</li>
 
-          <li>All potentially sensitive information such as passwords and user data is properly encrypted or hashed and securely stored behind a firewall.</li>
+          <li>The security of your application is very important. All potentially sensitive information such as passwords and user data will be properly encrypted and always securely stored.</li>
 
-          <li>Web forms or API calls that create, update, or delete from a database or upload files are validated with multiple layers of security to prevent malicious attacks theft of information</li>
+          <li>I can set up your secure SSL certificates, DNS records, webserver configuration, mail servers, databases, firewalls, and more</li>
 
-          <li>I can create professionally styled email templates with custom CSS and dynamic data</li>
+          
+          <li>Web forms and API calls are validated with multiple layers of security and sanitization to protect against malicious attacks or corruption of information</li>
 
-          <li>Do you need a mail server setup? An existing web server configured differently? DNS record changes? For anything web server related, I offer my services as system administrator!</li>
         </ul>
       </div>
     </div>
