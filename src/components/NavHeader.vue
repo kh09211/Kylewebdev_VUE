@@ -52,7 +52,7 @@
           name="big-header-transition"
           enter-active-class="animate__animated animate__zoomIn"
           >
-			      <h1 class="header-text1 text-light mt-3">Full-Stack Developer</h1>
+			      <h1 class="header-text1 text-light mt-4 pt-2">Full-Stack Developer</h1>
         </transition>
         <transition appear
           name="big-header-transition"
@@ -95,7 +95,7 @@ export default {
     background-position: top, right;
     */
     width: 100%;
-    height: 75vh; /* 120 */
+    height: 60vh; /* 120 */
 }
 
 a.nav-link {
@@ -165,7 +165,7 @@ h6.header-text2 {
 @media screen and (max-width: 720px) {
     /* To decrease objects size with mobile sceen adjustment */
     .header_photo {
-        height: 50vh;
+        height: 35vh;
     }
 
     h1.header-text1 {
@@ -185,6 +185,11 @@ h6.header-text2 {
     .logo {
     width: 30px;
     }
+}
+
+#code-icon {
+  position: absolute;
+  bottom: 100px;
 }
 
 </style>

@@ -1,6 +1,7 @@
 <template>
    <main id="main" class="bg-light">
     <nav-header></nav-header>
+    <CodeIcons></CodeIcons>
     <div class="divider-box"></div>
     <services></services>
     <div class="divider-box"></div>
@@ -24,6 +25,7 @@ import Resume from '@/components/Resume.vue'
 import AboutMe from '@/components/AboutMe.vue'
 import Contact from '@/components/Contact.vue'
 import FooterEnd from '@/components/Footer.vue'
+import CodeIcons from '@/components/CodeIcons.vue'
 
 
 export default {
@@ -35,7 +37,8 @@ export default {
     Resume,
     AboutMe,
     Contact,
-    FooterEnd
+    FooterEnd,
+    CodeIcons
   }
 }
 </script>
