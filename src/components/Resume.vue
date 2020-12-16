@@ -30,7 +30,7 @@
 				
 				<transition
 						name="section2"
-						enter-active-class="animate__animated animate__fadeIn animate_slow"
+						enter-active-class="animate__animated animate__fadeIn animate_slower"
 						>
 					<ul v-show="section2"><b>Front End Technologies</b>
 						<li>Javascript (ES6), API/AJAX calls using Axios and jQuery, customized carousels, modals, and pop-ups</li>
@@ -48,7 +48,7 @@
 				
 				<transition
 						name="section3"
-						enter-active-class="animate__animated animate__fadeIn animate_slow"
+						enter-active-class="animate__animated animate__fadeIn animate_slower"
 						>
 					<ul v-show="section3"><b>General Programming</b>
 						<li>Object oriented (OOP), functional, and procedural programming principles and design practices</li>
@@ -64,7 +64,7 @@
 				
 				<transition
 						name="section4"
-						enter-active-class="animate__animated animate__fadeIn animate_slow"
+						enter-active-class="animate__animated animate__fadeIn animate_slower"
 						>
 					<ul v-show="section4"><b>System Administration</b>
 						<li>Proficiency with the shell command line, SSH, FTP,  shell scripting, and custom kernel compilation</li>
@@ -82,7 +82,7 @@
 
 				<transition
 						name="section5"
-						enter-active-class="animate__animated animate__fadeIn animate_slow"
+						enter-active-class="animate__animated animate__fadeIn animate_slower"
 						>
 					<ul v-show="section5"><b>Other Relevant Skills/Certs</b>
 						<li>Responsive Web Design Certification (300 hours) - FreeCodeCamp.org</li>
@@ -93,18 +93,51 @@
 						<li>Custom wiring harnesses, relay and controller boards, Megasquirt PCM, and standalone circuitry</li>
 						<li>Fine tuning of electronic fuel injection and ignition systems for racing applications</li>
 
-						<div id="hire-photo3"></div> <!-- Moved here to prevent firing prematurely -->
+						<div id="section6" />
 					</ul>
 				</transition>
-
 				</div>
+
+
+				<transition
+						name="section6"
+						enter-active-class="animate__animated animate__fadeIn animate_slower"
+						>
+					<!-- certs have .567 ratio -->
+					<div v-show="section6" class="row mt-5 mx-1 mx-md-5 px-md-5 justify-content-center">
+						<div class="col-md-6">
+							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/javascript-algorithms-and-data-structures" target="_blank">
+								<img class="img-fluid rounded shadow" src="../assets/certs/javascript-cert2.png" />
+							</a>
+						</div>
+						<div class="col-md-6 mt-4 mt-md-0">
+							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/responsive-web-design" target="_blank">
+								<img class="img-fluid rounded shadow" src="../assets/certs/responsive-cert2.png" />
+							</a>
+						</div>
+						<div class="col-md-6 mt-4 pt-1">
+							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/responsive-web-design" target="_blank">
+								<img class="img-fluid rounded shadow" src="../assets/certs/fcccert.jpg" />
+							</a>
+						</div>
+						<div class="col-md-6 mt-4 pt-1 mb-3">
+							<img class="img-fluid rounded shadow" src="../assets/certs/degree-uga.jpg" />
+						</div>
+
+
+						<div id="hire-photo3"></div> <!-- Moved here to prevent firing prematurely -->
+
+					</div>
+				</transition>
+
+				
 			</div>
 			<div class="row justify-content-center">
 				<form action="#contact">
 
 					<transition
 						name="hire-transition3"
-						enter-active-class="animate__animated animate__tada"
+						enter-active-class="animate__animated animate__tada animate__delay-1s"
 						>
 							<button id="hire-button3" v-show="hireVisible" class="btn btn-outline-dark mt-5" type="submit" style=" ">Hire Kyle</button>
 					</transition>
@@ -126,7 +159,8 @@ export default {
 		   section2: false,
 		   section3: false,
 		   section4: false,
-		   section5: false, 
+		   section5: false,
+		   section6: false, 
 	  }
   },
   mounted() {
@@ -137,9 +171,9 @@ export default {
 		}
 
 		
-		// jquery to determine and fire off the transiton with a loop
+		// jquery to determine and fire off the transiton with a loop NOTE: i is the number of sections
 		
-		for (let i = 1; i <= 5; i++) {
+		for (let i = 1; i <= 6; i++) {
 			if (this.$isInViewport(document.getElementById('section' + i.toString(), 0))) {
 			this['section' + i.toString()] = true;
 		}
