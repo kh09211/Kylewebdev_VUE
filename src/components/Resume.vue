@@ -10,14 +10,14 @@
 				<div id="section1" />
 				<transition
 						name="section1"
-						enter-active-class="animate__animated animate__fadeIn animate__slow"
+						enter-active-class="animate__animated animate__fadeIn"
 						>
 					<ul v-show="section1"><b>Back End Technologies</b>
-						<li>PHP 7 best practices, use of Composer, class autoloaders, class inheritance, traits, and type hinting</li>
+						<li>PHP best practices, use of Composer, class autoloaders, class inheritance, traits, and type hinting</li>
 						<li>Node.js and Express Javascript frameworks, routing, database queries, JSON web tokens, and NPM</li>
-						<li>Laravel framework for PHP and use of artisan, Blade templating, Eloquent ORM, tinker, database 
-					<br>migrations, user authentication, authorization, routes, resource controllers, caching and Redis</li>
-						<li>REST API and Microservices using LUMEN framework for PHP and Express.js framework for Node</li>
+						<li>Laravel framework for PHP, creation of APIs and monolith apps, use of Artisan, Blade templating, 
+					<br>Eloquent ORM, database migrations, user authentication, authorization, routing, resource controllers</li>
+						<li>REST API and Microservices using Express.js framework for Node and Lumen framework for PHP</li>
 						<li>MYSQL and SQLite, schemas and migrations, and CRUD operations both raw queries and with ORMs</li>
 						<li>Middlewares, parsing data, form validation, CSRF tokens, filesystem manipulation, and JSON/XML</li>
 						<li>Payment integration using Stripe, Paypal, Laravel Cashier, WooCommerce, and Wordpress</li>
@@ -33,12 +33,12 @@
 						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section2"><b>Front End Technologies</b>
-						<li>Javascript (ES6), API/AJAX calls using Axios and jQuery, customized carousels, modals, and pop-ups</li>
-						<li>React.js library for Javascript and creation of user interfaces using components, props, and events</li>
-						<li>Vue.js framework for Javascript and the use of VueX, Vue-CLI, Vue Router, and authorization gates</li>
+						<li>Javascript (ES6),  jQuery, API/AJAX calls using Axios and Fetch API, custom modals and carousels</li>
+						<li>React library for Javascript and creation of UI using hooks, class components, JSX, and events</li>
+						<li>Vue framework for Javascript and the use of VueX, Vue-CLI, Vue Router, and navigation gates</li>
 						<li>Single Page Applications (SPA) principles, state management, and integration with back end APIs</li>
 						<li>HTML 5 markup, visual design, applied accessibility, and mobile first website design principles</li>
-						<li>Bootstrap 4, CSS 3, CSS Flexbox, CSS Grid, SASS, media queries, CSS animations and transitions</li>
+						<li>Bootstrap, TailwindCSS, CSS Flexbox, CSS Grid, SASS, media queries, CSS animations and transitions</li>
 						<li>Experience with Zeplin, Figma, and turning UI/UX designs into functional pixel perfect front ends</li>
 
 						<div id="section3" />
@@ -52,7 +52,7 @@
 						>
 					<ul v-show="section3"><b>General Programming</b>
 						<li>Object oriented (OOP), functional, and procedural programming principles and design practices</li>
-						<li>Understanding of Models, Views, Controllers, MVC and MVVM frameworks, and state management</li>
+						<li>Understanding of Models, Views, Controllers, (MVC) paradigm, SPAs, and state management</li>
 						<li>Algorithm scripting, data structures, regular expressions, code debugging and refactoring</li>
 						<li>GIT/Git-Hub versioning software, initializing repositories, cloning, forking, commits, revert versions</li>
 						<li>Self-taught and capable of quickly learning new languages, technologies, and programming styles</li>
@@ -85,9 +85,8 @@
 						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section5"><b>Other Relevant Skills/Certs</b>
-						<li>Responsive Web Design Certification (300 hours) - FreeCodeCamp.org</li>
-						<li>Javascript Algorithms and Data Structures Certification (300 hours) - FreeCodeCamp.org</li>
-						<li>Experience with Matlab, Basic, Visual Basic, C, Compilers and Decompilers</li>
+						
+						<li>Experience with Inertia.js, Redux, Matlab, Visual Basic, C, Compilers and Decompilers</li>
 						<li>ASE Automotive Certifications - Electrical Systems / Engine Repair</li>
 						<li>Spanish at the B1 level and TEFL teaching certification from Full-Circle</li>
 						<li>Custom wiring harnesses, relay and controller boards, Megasquirt PCM, and standalone circuitry</li>
@@ -105,12 +104,12 @@
 						>
 					<!-- certs have .567 ratio -->
 					<div v-show="section6" class="row mt-5 mx-1 mx-md-5 px-md-5 justify-content-center">
-						<div class="col-md-6 mt-4 mt-md-0">
+						<div class="col-md-6">
 							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/front-end-libraries" target="_blank">
 								<img class="img-fluid rounded shadow" src="../assets/certs/frontend-cert.png" />
 							</a>
 						</div>
-						<div class="col-md-6">
+						<div class="col-md-6 mt-4 mt-md-0">
 							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/javascript-algorithms-and-data-structures" target="_blank">
 								<img class="img-fluid rounded shadow" src="../assets/certs/javascript-cert2.png" />
 							</a>
