@@ -105,14 +105,14 @@
 						>
 					<!-- certs have .567 ratio -->
 					<div v-show="section6" class="row mt-5 mx-1 mx-md-5 px-md-5 justify-content-center">
+						<div class="col-md-6 mt-4 mt-md-0">
+							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/front-end-libraries" target="_blank">
+								<img class="img-fluid rounded shadow" src="../assets/certs/frontend-cert.png" />
+							</a>
+						</div>
 						<div class="col-md-6">
 							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/javascript-algorithms-and-data-structures" target="_blank">
 								<img class="img-fluid rounded shadow" src="../assets/certs/javascript-cert2.png" />
-							</a>
-						</div>
-						<div class="col-md-6 mt-4 mt-md-0">
-							<a href="https://www.freecodecamp.org/certification/fcc6f128c61-5cee-47c7-b9fd-7124cccdffe1/responsive-web-design" target="_blank">
-								<img class="img-fluid rounded shadow" src="../assets/certs/responsive-cert2.png" />
 							</a>
 						</div>
 						<div class="col-md-6 mt-4 pt-1">
@@ -121,7 +121,7 @@
 							</a>
 						</div>
 						<div class="col-md-6 mt-4 pt-1 mb-3">
-							<img class="img-fluid rounded shadow" src="../assets/certs/degree-uga.jpg" />
+							<img class="img-fluid rounded shadow border" src="../assets/certs/degree-uga.jpg" />
 						</div>
 
 
