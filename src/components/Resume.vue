@@ -10,7 +10,7 @@
 				<div id="section1" />
 				<transition
 						name="section1"
-						enter-active-class="animate__animated animate__fadeIn animate_slow"
+						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section1"><b>Back End Technologies</b>
 						<li>PHP 7 best practices, use of Composer, class autoloaders, class inheritance, traits, and type hinting</li>
@@ -30,7 +30,7 @@
 				
 				<transition
 						name="section2"
-						enter-active-class="animate__animated animate__fadeIn animate_slower"
+						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section2"><b>Front End Technologies</b>
 						<li>Javascript (ES6), API/AJAX calls using Axios and jQuery, customized carousels, modals, and pop-ups</li>
@@ -48,7 +48,7 @@
 				
 				<transition
 						name="section3"
-						enter-active-class="animate__animated animate__fadeIn animate_slower"
+						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section3"><b>General Programming</b>
 						<li>Object oriented (OOP), functional, and procedural programming principles and design practices</li>
@@ -64,7 +64,7 @@
 				
 				<transition
 						name="section4"
-						enter-active-class="animate__animated animate__fadeIn animate_slower"
+						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section4"><b>System Administration</b>
 						<li>Proficiency with the shell command line, SSH, FTP,  shell scripting, and custom kernel compilation</li>
@@ -82,7 +82,7 @@
 
 				<transition
 						name="section5"
-						enter-active-class="animate__animated animate__fadeIn animate_slower"
+						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section5"><b>Other Relevant Skills/Certs</b>
 						<li>Responsive Web Design Certification (300 hours) - FreeCodeCamp.org</li>
@@ -101,7 +101,7 @@
 
 				<transition
 						name="section6"
-						enter-active-class="animate__animated animate__fadeIn animate_slower"
+						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<!-- certs have .567 ratio -->
 					<div v-show="section6" class="row mt-5 mx-1 mx-md-5 px-md-5 justify-content-center">
