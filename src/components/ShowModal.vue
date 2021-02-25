@@ -39,7 +39,7 @@
 						<a :href="project.link" target="_blank" class="d-block mt-1">Link to view website</a>
 
 						<hr>
-						<div id="project-desc" class="desc mx-md-3"><i>{{ project.description }}</i></div>
+						<div id="project-desc" class="desc mx-md-3 pb-3"><i>{{ project.description }}</i></div>
 						
 					</div>
             	</div>
