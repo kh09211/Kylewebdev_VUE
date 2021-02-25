@@ -13,14 +13,17 @@
 						enter-active-class="animate__animated animate__fadeIn"
 						>
 					<ul v-show="section1"><b>Back End Technologies</b>
-						<li>PHP best practices, use of Composer, class autoloaders, class inheritance, traits, and type hinting</li>
+						<li>PHP best practices, use of Composer, class autoloaders, class inheritance, traits, and type declarations</li>
+						<li>Laravel framework (PHP,) creation of APIs and monolith apps, use of Artisan, Blade templating, 
+					<br>
+						Eloquent ORM, database migrations, user authentication, authorization, routing, resource controllers</li>
+						<li>Symfony Framework (PHP), Doctrine, bin/console, CLI, Twig, routes, forms Security Authentication</li>
 						<li>Node.js and Express Javascript frameworks, routing, database queries, JSON web tokens, and NPM</li>
-						<li>Laravel framework for PHP, creation of APIs and monolith apps, use of Artisan, Blade templating, 
-					<br>Eloquent ORM, database migrations, user authentication, authorization, routing, resource controllers</li>
 						<li>REST API and Microservices using Express.js framework for Node and Lumen framework for PHP</li>
 						<li>MYSQL and SQLite, schemas and migrations, and CRUD operations both raw queries and with ORMs</li>
 						<li>Middlewares, parsing data, form validation, CSRF tokens, filesystem manipulation, and JSON/XML</li>
-						<li>Payment integration using Stripe, Paypal, Laravel Cashier, WooCommerce, and Wordpress</li>
+						<li>Payment integration using Stripe, Paypal, Laravel Cashier, WooCommerce, and Wordpress installs</li>
+						<li>Web scraping and the Goutte library for PHP, crawling the DOM of external sites, parsing data</li>
 
 						<div class="text-right mt-5" v-show="!section2"><i class="fas fa-caret-down"></i> Scroll For More</div>
 						<div id="section2" /> <!-- This dive inside prev section to prevent early rendering -->
@@ -33,13 +36,15 @@
 						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section2"><b>Front End Technologies</b>
-						<li>Javascript (ES6),  jQuery, API/AJAX calls using Axios and Fetch API, custom modals and carousels</li>
-						<li>React library for Javascript and creation of UI using hooks, class components, JSX, and events</li>
-						<li>Vue framework for Javascript and the use of VueX, Vue-CLI, Vue Router, and navigation gates</li>
+						<li>Javascript (ES6), jQuery, API/AJAX calls using Axios and Fetch API, custom modals and carousels</li>
+						<li>React.js and Redux.js, rendering, store, creation of UI using hooks, class components, JSX, and events</li>
+						<li>Vue.js framework, Inertia.js, and the use of VueX, Vue-CLI, Vue Router, and navigation gates</li>
 						<li>Single Page Applications (SPA) principles, state management, and integration with back end APIs</li>
 						<li>HTML 5 markup, visual design, applied accessibility, and mobile first website design principles</li>
 						<li>Bootstrap, TailwindCSS, CSS Flexbox, CSS Grid, SASS, media queries, CSS animations and transitions</li>
 						<li>Experience with Zeplin, Figma, and turning UI/UX designs into functional pixel perfect front ends</li>
+						<li>WebRTC video and audio phone call integration using the AWS SDK, Chime SDK, databases, and React</li>
+						<li>Picking dates, making schedules, handling Date/Time object UTC and locale conversions, formatting</li>
 
 						<div id="section3" />
 					</ul>
@@ -67,7 +72,7 @@
 						enter-active-class="animate__animated animate__fadeIn animate__slow"
 						>
 					<ul v-show="section4"><b>System Administration</b>
-						<li>Proficiency with the shell command line, SSH, FTP,  shell scripting, and custom kernel compilation</li>
+						<li>Proficiency with the shell command line, SSH, FTP, shell scripting, and custom kernel compilation</li>
 						<li>Deployment of application code to servers, setting up databases, caching, special configurations</li>
 						<li>Ubuntu server, Red-hat server, Arch distributions, package management, setup of SMTP mail servers</li>
 						<li>AWS cloud management, EC2 instances, Route 53 and hosted zone DNS name record configurations</li>
