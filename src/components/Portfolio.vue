@@ -30,14 +30,18 @@
 				name="hire-transition2-1"
 				enter-active-class="animate__animated animate__fadeIn"
 				>
-					<div v-show="hireVisible"><img class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px"></div>
+					<div v-show="hireVisible">
+						<!--
+						<img class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px">
+						-->
+					</div>
 				</transition>
 
 			<form action="#contact">
 
 				<transition
 				name="hire-transition2-2"
-				enter-active-class="animate__animated animate__fadeIn"
+				enter-active-class="animate__animated animate__tada"
 				>
 					<button id="hire-button2" v-show="hireVisible" class="btn btn-outline-dark ml-1" type="submit" style="font-size:16px;">Hire Kyle</button>
 				</transition>

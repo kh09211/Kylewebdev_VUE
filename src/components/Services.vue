@@ -67,7 +67,11 @@
       <p class="mx-5 text-center">Free consultation, flexible payment options, price quotes per small job or hourly rates for large projects</p>
     </div>
     <div class="row justify-content-center align-items-center d-flex pb-5 pt-2">
-        <div><img id="hire-photo" class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px"></div>
+        <div id="hire-photo">
+          <!--
+          <img class="rounded-circle mr-1" src="../assets/kyle_square.jpg" alt="kyle photo" style="height: 85px">
+          -->
+        </div>
         <form action="#contact">
 
           <transition
